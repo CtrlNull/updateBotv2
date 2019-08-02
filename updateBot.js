@@ -5,7 +5,7 @@ const BOT = new Discord.Client();
 
 
 
-BOT.login(BOTCONF.token).then(() => {
+BOT.login(SERDEETS["serverDeets"]["token"]).then(() => {
     console.log("Bot Engaged");
     // Get GUILD ID
     const pcrGuild = bots.guilds.get(SERDEET["pcRec"]["guildId"]);
@@ -26,7 +26,9 @@ BOT.login(BOTCONF.token).then(() => {
 
        if (pcrChannels.length) {
            for (i=0;i<pcrChannels.length;i++) {
-               if ()
+               if (pcrGuild.channels.get(pcrChannels[i])) {
+                   pcrGuild.channels.get(pcrChannels[i]).send(genStr["verb"] + " " + genStr["repo"] + " " + genStr["increment"]); // fill this in w/json
+               }
            }
        }
     }
