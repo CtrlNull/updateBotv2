@@ -30,30 +30,26 @@ while true; do
     echo -n "Enter Server [0 for Feature2], [1 for Trunk] or [2 for Custom Text Entry]"; read serverTxt
     case $serverTxt in
     "") echo "You did not provide any response";;
-    0)
+    0) # Feature2
         serverTxt=$"Feature2"
         break;;
-    1)
+    1) #Trunk
         serverTxt=$"Trunk"
         break;;
-    2)
-        serverTxt=$"CUSTOM"
+    2) #Custom Text
+        while true; do
+            echo -n "Enter Server Custom Text"; read serverTxt2
+            case $serverTxt2
+            "") echo "You did not provide any response";;
+            *)
+                $serverTxt = $serverTxt2
+                break;;
+            esac
+        done
         break;;
-    *) echo "Not an option"
+    *) echo "Not an option";;
     esac
 done
-
-
-if ((${serverTxt^^} = "CUSTOM" ))
-then
-    while true; do
-        echo -n "Enter Server Custom Text"; read serverTxt
-        case $serverTxt in
-        "") echo "You did not provide any response";;
-        *) break;;
-        esac
-    done
-fi
 
 ### Get Update Increment ###
 
@@ -61,8 +57,7 @@ while true; do
     echo -n "Enter increment or type NULL"; read incrementNumb
         case $incrementNumb in
         "") echo "You did not provide any response";;
-        *) 
-            break;;
+        *) break;;
         esac    
 done
 
