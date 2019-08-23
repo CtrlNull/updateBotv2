@@ -1,5 +1,5 @@
 const SERDEETS = require("./serverDetails.json"); // contains tokens and other server stuff
-const genStr = require("./genStr.json"); // contains bash script stuff
+const genStr = require("./genStr.json")
 const Discord = require("discord.js");
 const BOT = new Discord.Client();
 

@@ -10,7 +10,7 @@
 ### Get Verb ###
 
 while true; do
-    echo -n "Enter [0 for Updating] or [1 for Updated]"; read updateTxt
+    echo -n "Enter [0 for Updating] or [1 for Updated] "; read updateTxt
 
     case $updateTxt in
     "") echo "You did not provide any resposnse";;
@@ -27,7 +27,7 @@ done
 ### Get Server Text ###
 
 while true; do
-    echo -n "Enter Server [0 for Feature2], [1 for Trunk] or [2 for Custom Text Entry]"; read serverTxt
+    echo -n "Enter Server [0 for Feature2], [1 for Trunk] or [2 for Custom Text Entry] "; read serverTxt
     case $serverTxt in
     "") echo "You did not provide any response";;
     0) # Feature2
@@ -38,7 +38,7 @@ while true; do
         break;;
     2) #Custom Text
         while true; do
-            echo -n "Enter Server Custom Text"; read serverTxt2
+            echo -n "Enter Server Custom Text "; read serverTxt2
             case $serverTxt2 in
             "") echo "You did not provide any response";;
             *)
@@ -54,7 +54,7 @@ done
 ### Get Update Increment ###
 
 while true; do
-    echo -n "Enter increment or type NULL"; read incrementNumb
+    echo -n "Enter increment or type NULL "; read incrementNumb
         case $incrementNumb in
         "") echo "You did not provide any response";;
         *) break;;
@@ -69,7 +69,7 @@ fi
 
 ####### Create JSON FILE #########
 
-cat >./config.json <<EOF
+cat >./genStr.json <<EOF
 {
     "verb": "${updateTxt}",
     "repo": "${serverTxt}",
@@ -79,8 +79,5 @@ EOF
 
 # Check dep
 npm -v
-read npmVersion
-echo "$npmVersion"
-echo "$npmVersion"
-echo "$npmVersion"
-echo "$npmVersion"
+
+node updateBot.js
