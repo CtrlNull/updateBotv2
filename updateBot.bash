@@ -15,10 +15,10 @@ while true; do
     case $updateTxt in
     "") echo "You did not provide any resposnse";;
     0) 
-        updateText=$"Updating"
+        updateTxt=$"Updating"
         break;;
     1) 
-        updateText=$"Updated"
+        updateTxt=$"Updated"
         break;;
     *) echo "Not an option";;
     esac
@@ -39,10 +39,10 @@ while true; do
     2) #Custom Text
         while true; do
             echo -n "Enter Server Custom Text"; read serverTxt2
-            case $serverTxt2
+            case $serverTxt2 in
             "") echo "You did not provide any response";;
             *)
-                $serverTxt = $serverTxt2
+                serverTxt=$"$serverTxt2"
                 break;;
             esac
         done
@@ -60,8 +60,8 @@ while true; do
         *) break;;
         esac    
 done
-
-if ((${incrementNumb^^} = "NULL" ))
+echo ${incrementNumb^^}
+if ((${incrementNumb^^} == "NULL" ))
 then
     incrementNumb=$""
 fi
