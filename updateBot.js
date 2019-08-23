@@ -3,12 +3,10 @@ const genStr = require("./genStr.json")
 const Discord = require("discord.js");
 const BOT = new Discord.Client();
 
-
-
 BOT.login(SERDEETS["serverDeets"]["token"]).then(() => {
     console.log("Bot Engaged");
     // Get GUILD ID
-    const pcrGuild = bots.guilds.get(SERDEET["pcRec"]["guildId"]);
+    const pcrGuild = BOT.guilds.get(SERDEETS["pcRec"]["guildId"]);
     var pcrChannels = [];
     
     // Get list of channels in json
@@ -17,12 +15,12 @@ BOT.login(SERDEETS["serverDeets"]["token"]).then(() => {
             pcrChannels.push(SERDEETS["pcRec"]["channels"][i][key])
         }
     }
-
     if (pcrGuild) {
-       for (i=0;i<2;i++) {
-           if (pcrGuild.channels.get(CONSTS.pcrGuild['channels'][i])); // check channels if avaliable
-            avChannels.push(pcrGuild['channels'][0])
-       }
+    //    for (i=0;i<2;i++) {
+    //        if (pcrGuild.channels.get(SERDEETS["pcRec"]["channels"][i]))
+    //        if (pcrGuild.channels.get(CONSTS.pcrGuild['channels'][i])); // check channels if avaliable
+    //         avChannels.push(pcrGuild['channels'][0])
+    //    }
 
        if (pcrChannels.length) {
            for (i=0;i<pcrChannels.length;i++) {

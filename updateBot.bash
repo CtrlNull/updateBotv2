@@ -60,7 +60,7 @@ while true; do
         *) break;;
         esac    
 done
-echo ${incrementNumb^^}
+
 if ((${incrementNumb^^} == "NULL" ))
 then
     incrementNumb=$""
@@ -77,7 +77,9 @@ cat >./genStr.json <<EOF
 }
 EOF
 
+
+
 # Check dep
 npm -v
-
 node updateBot.js
+exit
